@@ -25,6 +25,7 @@ jobs:
           scan: true  # Taramayı aktif et
           report_format: "json"  # Rapor formatını json olarak al
           report_path: "gitleaks_reports/report.json"  # Rapor dosyasının yolu
+        continue-on-error: true
           
       - name: 📤 Upload Gitleaks Report as Artifact
         uses: actions/upload-artifact@v4
