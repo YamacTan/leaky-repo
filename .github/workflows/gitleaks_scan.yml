@@ -25,19 +25,3 @@ jobs:
           scan: true  # Taramayı aktif et
           report_format: "json"  # Rapor formatını json olarak al
           report_path: "gitleaks_reports/report.json"  # Rapor dosyasının yolu
-        continue-on-error: true
-          
-      - name: 📤 Upload Gitleaks Report as Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: gitleaks-report
-          path: gitleaks_reports/report.json
-
-      - name: 📊 Display Gitleaks Report
-        run: |
-          if [ -s gitleaks_reports/report.json ]; then
-            echo "Leaks detected! Check the report below."
-            cat gitleaks_reports/report.json
-          else
-            echo "No leaks detected."
-          fi
